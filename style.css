@@ -7,8 +7,8 @@
 .gallery{
     display: inline-block;
     border: 1px solid hsl(0, 0%, 60%);
-    margin: 5px;
-    width: 99%;
+    margin: 1px;
+    width: 100%;
 }
 .gallery .description{
     padding: 10px;
