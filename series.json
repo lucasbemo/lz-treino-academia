@@ -64,5 +64,34 @@
                 "img": "6-TricepsMaquina.png"
             }
         ]
+    },
+    {
+        "serie": "C",
+        "equipamento": [
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            }
+        ]
     }
 ]
