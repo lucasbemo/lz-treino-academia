@@ -4,35 +4,52 @@ AddSeries();
 
 async function AddSeries() {
     let series = await findSeries();
-    let equipamentos = series[0].equipamento;
-    console.log(equipamentos);
-    equipamentos.forEach(eq => {
-        document.getElementById('carousel').innerHTML += 
-        `
-        <div class="carousel__item">
-            <img src="images/${eq.img}" class="carousel__item__img" />
-            <div class="carousel__item__text">
-                <p>${eq.nome}</p>
-            </div>
-        </div>
-        `
-    });
 
-    setUp();
+    series.forEach(serie => {
+        document.querySelectorAll(".container").forEach((container) => {
+            container.insertAdjacentHTML("beforeend",
+                `
+                    <div class="carousel" id="carousel${serie.serie}">
+                    </div>
+                `
+            );
+        
+            let equipamentos = serie.equipamento;
+
+            addCarousel(equipamentos, `carousel${serie.serie}`);
+        });
+    });
+    setUpCarousel();
 }
 
 async function findSeries() {
     let reponseSeries = await fetch(seriesURL);
     let series = await reponseSeries.json();
-    console.log(series);
     
     return series;
 }
 
-async function setUp() {
+async function addCarousel(equipamentos, carouselId) {
+    const carouselItemId = `carousel__item carousel__item${carouselId}`;
+
+    equipamentos.forEach(equipamento => {
+        document.getElementById(carouselId).innerHTML += 
+            `
+            <div class="${carouselItemId}">
+                <img src="images/${equipamento.img}" class="carousel__item__img" />
+                <div class="carousel__item__text">
+                    <p>${equipamento.nome}</p>
+                </div>
+            </div>
+            `;
+    });
+}
+
+async function setUpCarousel() {
     document.querySelectorAll(".carousel").forEach((carousel) => {
         const items = carousel.querySelectorAll(".carousel__item");
         console.log(items.length);
+        
         const buttonsHtml = Array.from(items, () => {
             return `<span class="carousel__button"></span>`;
         });
@@ -67,4 +84,3 @@ async function setUp() {
         buttons[0].classList.add("carousel__button--selected");
     });
 }
-
