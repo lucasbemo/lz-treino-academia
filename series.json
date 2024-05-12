@@ -1,0 +1,68 @@
+[
+    {
+        "serie": "A",
+        "equipamento": [
+            {
+                "nome": "1 - Supino Reto",
+                "img": "1-SupinoReto.png"
+            },
+            {
+                "nome": "2 - Supino Inclinado",
+                "img": "2-SupinoInclinado.png"
+            },
+            {
+                "nome": "3 - Crucifixo Sentado",
+                "img": "3-CrucifixoSentado.png"
+            },
+            {
+                "nome": "4 - Desenvolvimento Maquina",
+                "img": "4-DesenvolvimentoMaquina.png"
+            },
+            {
+                "nome": "5 - Elevacao Lateral Simultanea",
+                "img": "5-ElevacaoLateralSimultanea.png"
+            },
+            {
+                "nome": "6 - Tríceps Máquina",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "7 - Tríceps Pulley",
+                "img": "7-TricepsPulley.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            }
+        ]
+    },
+    {
+        "serie": "B",
+        "equipamento": [
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            },
+            {
+                "nome": "8 - Esteira",
+                "img": "6-TricepsMaquina.png"
+            }
+        ]
+    }
+]
