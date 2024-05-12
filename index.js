@@ -1,15 +1,27 @@
 const seriesURL =  'https://raw.githubusercontent.com/lucasbemo/lz-treino-academia/main/series.json';
+let series;
 
-AddSeries();
+setup();
+
+
+async function setup() {
+    AddSeries();
+
+    setActionOnTabButtons();
+}
 
 async function AddSeries() {
-    let series = await findSeries();
+    series = await findSeries();
 
     series.forEach(serie => {
         document.querySelectorAll(".container").forEach((container) => {
+            let hidden = 'hidden="hidden"';
+            if (serie.serie === "A")
+                hidden = '';
+
             container.insertAdjacentHTML("beforeend",
                 `
-                    <div class="carousel" id="carousel${serie.serie}">
+                    <div class="carousel" ${hidden} id="carousel${serie.serie}">
                     </div>
                 `
             );
@@ -19,7 +31,22 @@ async function AddSeries() {
             addCarousel(equipamentos, `carousel${serie.serie}`);
         });
     });
-    setUpCarousel();
+
+    addCarouselButtons();
+}
+
+async function setActionOnTabButtons() {
+    document.querySelectorAll(".btn").forEach((tabButton) => {
+        console.log(tabButton.id);
+        
+        tabButton.addEventListener("click", () => {
+            document.querySelectorAll(".carousel").forEach(carousel => carousel.setAttribute("hidden", "hidden"));
+
+            let carousel = document.getElementById(`carousel${tabButton.id}`);
+            console.log(carousel);
+            carousel.removeAttribute("hidden");
+        });
+    });
 }
 
 async function findSeries() {
@@ -45,10 +72,9 @@ async function addCarousel(equipamentos, carouselId) {
     });
 }
 
-async function setUpCarousel() {
+async function addCarouselButtons() {
     document.querySelectorAll(".carousel").forEach((carousel) => {
         const items = carousel.querySelectorAll(".carousel__item");
-        console.log(items.length);
         
         const buttonsHtml = Array.from(items, () => {
             return `<span class="carousel__button"></span>`;
