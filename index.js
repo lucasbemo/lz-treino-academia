@@ -36,16 +36,28 @@ async function AddSeries() {
 }
 
 async function setActionOnTabButtons() {
-    document.querySelectorAll(".btn").forEach((tabButton) => {
-        console.log(tabButton.id);
+    document.querySelectorAll(".tab__btn").forEach((tabButton) => {
         
-        tabButton.addEventListener("click", () => {
-            document.querySelectorAll(".carousel").forEach(carousel => carousel.setAttribute("hidden", "hidden"));
+        
+        addCLickEnvetInTabButtons(tabButton);
+    });
+}
 
-            let carousel = document.getElementById(`carousel${tabButton.id}`);
-            console.log(carousel);
-            carousel.removeAttribute("hidden");
-        });
+async function addCLickEnvetInTabButtons(tabButton) {
+    tabButton.addEventListener("click", () => {
+        document.querySelectorAll(".carousel").forEach(carousel => carousel.setAttribute("hidden", "hidden"));
+
+        document.querySelectorAll(".tab__btn").forEach((item => item.classList.remove('tabs__button__box--selected')));
+        document.querySelectorAll(".tab__btn").forEach((item => item.classList.add('tabs__button__box')));
+        document.querySelectorAll(".tab__btn").forEach((item => item.classList.add('btn')));
+
+        let carousel = document.getElementById(`carousel${tabButton.id}`);
+        console.log(carousel);
+        carousel.removeAttribute("hidden");
+
+        tabButton.classList.remove('tabs__button__box');
+        tabButton.classList.remove('btn');
+        tabButton.classList.add('tabs__button__box--selected');
     });
 }
 
